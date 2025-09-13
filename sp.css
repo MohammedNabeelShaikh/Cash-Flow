@@ -1,50 +1,44 @@
-/* ------------------- Navbar ------------------- */
-.navbar {
-  position: fixed;    /* fixed so it always stays at top */
-  top: 0;
-  left: 0;
-  width: 100%;        /* span across the screen */
-  z-index: 1000;      /* make sure it stays above everything */
-  background: #1e3a8a; /* deep blue background */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-/* make sure page content isn't hidden behind the fixed navbar */
+/* Base styles */
 body {
   margin: 0;
-  padding-top: 60px; /* adjust this if navbar is taller */
+  font-family: Arial, sans-serif;
+  padding-top: 70px; /* Push content down so it doesn't hide under navbar */
 }
 
+.navbar {
+  position: fixed; /* Fixes the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Keeps navbar on top of everything */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for floating effect */
+}
 
 .logo {
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
 }
 
-.nav-links li {
-  margin: 0 10px;
-}
-
-.nav-links a {
-  text-decoration: none;
+.nav-links li a {
   color: white;
-  transition: color 0.3s;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #9ebcde;
+.nav-links li a:hover {
+  color: #ffd700;
 }
 
 .search-bar {
@@ -54,28 +48,56 @@ body {
 
 .search-bar input {
   padding: 5px;
+  border-radius: 5px 0 0 5px;
   border: none;
-  border-radius: 3px 0 0 3px;
   outline: none;
-  width: 40vh;
 }
 
 .search-bar button {
-  padding: 6px 10px;
+  padding: 5px 10px;
   border: none;
-  background: #64b0dc;
-  color: white;
-  border-radius: 0 3px 3px 0;
+  background: #ffd700;
   cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 0 5px 5px 0;
 }
 
-.search-bar button:hover {
-  background: #357ab8;
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.content {
-  padding: 20px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px; /* Dropdown appears just below fixed navbar */
+    right: 0;
+    background: #333;
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    display: none;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .search-bar {
+    display: none; /* Hide search bar on smaller screens */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
 
 :root {
@@ -124,7 +146,7 @@ body {
 
 .tree-container:hover {
   transform: scale(1.01);
-   box-shadow: 0 12px 30px rgba(90, 204, 246, 0.8); 
+  box-shadow: 0 12px 30px rgba(90, 204, 246, 0.8);
   background: linear-gradient(135deg, #91a2ef 0%, #764ba2 100%);
 }
 .tree-container:hover h2 {
