@@ -1,0 +1,181 @@
+:root {
+  /* Dark Theme Palette */
+  --bg: #121212; /* Page background */
+  --card: #1f1f1f; /* Tree container */
+  --node-parent: #1e3a8a; /* Parent nodes */
+  --node-child: #0ea5e9; /* Child nodes */
+  --node-grandchild: #14b8a6; /* Grandchild nodes */
+  --hover: #22d3ee; /* Hover color */
+  --text: #e5e7eb; /* Node text */
+  --heading: #60a5fa; /* Headings */
+  --line: #4b5563; /* SVG lines */
+}
+
+/* ------------------- Global Styles ------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 20px;
+}
+
+/* ------------------- Tree Container ------------------- */
+.tree-container {
+  position: relative;
+  width: 900px;
+  max-width: calc(100% - 40px);
+  background-color: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tree-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 30px rgba(220, 163, 163, 0.8);
+  background: linear-gradient(135deg, #91a2ef 0%, #764ba2 100%);
+}
+.tree-container:hover h2 {
+  color: #1f1f1f; /* darker color for heading */
+  transition: color 0.3s ease; /* smooth color transition */
+}
+h2 {
+  margin-bottom: 20px;
+  color: var(--heading);
+}
+
+/* ------------------- Tree Layout ------------------- */
+.tree {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* ------------------- Tree Items ------------------- */
+.tree-item {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+  padding: 6px;
+}
+
+/* ------------------- Nodes ------------------- */
+.node {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+  transition: transform 150ms ease, background 150ms ease, color 150ms ease,
+    box-shadow 150ms ease;
+  z-index: 2;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Level-specific colors */
+.tree > .tree-item > .node {
+  background-color: var(--node-parent);
+}
+.tree > .tree-item > .children > .tree-item > .node {
+  background-color: var(--node-child);
+}
+.tree > .tree-item > .children > .tree-item > .children > .tree-item > .node {
+  background-color: var(--node-grandchild);
+}
+
+/* Hover effects */
+.node:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: var(--hover);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* ------------------- Children ------------------- */
+.children {
+  display: none;
+  margin-top: 36px;
+  gap: 36px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tree-item.expanded > .children {
+  display: flex;
+}
+
+/* ------------------- SVG Lines ------------------- */
+svg#lines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 1;
+  stroke: var(--line);
+  stroke-width: 2;
+  fill: none;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 375px) {
+  body {
+    padding: 8px;
+  }
+
+  .tree-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .tree {
+    flex-direction: column; /* stack root vertically */
+    align-items: center;
+  }
+
+  .tree-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* stack node + children */
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .children {
+    display: flex !important;
+    flex-direction: column; /* vertical stack of children */
+    align-items: center;
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .node {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 0; /* allow shrinking */
+    max-width: 90%; /* prevent overflow on small screens */
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal; /* allow multi-line text */
+  }
+
+  svg#lines {
+    width: 100%;
+    height: auto;
+  }
+}

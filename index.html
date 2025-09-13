@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>College Branch Tree — Curved Connections</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="tree-container" id="container">
-    <h2>College Branch-wise Flow (tap to open)</h2>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>College Branch Tree — Curved Connections</title>
+    <link rel="stylesheet" href="sp.css" />
+  </head>
+  <body>
+    <div class="tree-container" id="container">
+      <h2>College Branch-wise Flow (tap to open)</h2>
 
-    <div class="tree">
-      <!-- root item -->
-      <div class="tree-item">
-        <div class="node" onclick="toggle(this)">College</div>
+      <div class="tree">
+        <!-- root item -->
+        <div class="tree-item">
+          <div class="node" onclick="toggle(this)">College</div>
 
-        <!-- children of College -->
-        <div class="children">
-          <!-- CSE item -->
-          <div class="tree-item">
-            <div class="node" onclick="toggle(this)">CSE</div>
-            <div class="children">
-              <div class="tree-item"><div class="node">AI Lab</div></div>
-              <div class="tree-item"><div class="node">Events</div></div>
-              <div class="tree-item"><div class="node">Faculty Salaries</div></div>
+          <!-- children of College -->
+          <div class="children">
+            <!-- CSE item -->
+            <div class="tree-item">
+              <div class="node" onclick="toggle(this)">CSE</div>
+              <div class="children">
+                <div class="tree-item"><div class="node">AI Lab</div></div>
+                <div class="tree-item"><div class="node">Events</div></div>
+                <div class="tree-item">
+                  <div class="node">Faculty Salaries</div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <!-- Mechanical item -->
-          <div class="tree-item">
-            <div class="node" onclick="toggle(this)">Mechanical</div>
-            <div class="children">
-              <div class="tree-item"><div class="node">Workshops</div></div>
-              <div class="tree-item"><div class="node">Labs</div></div>
-              <div class="tree-item"><div class="node">Research</div></div>
+            <!-- Mechanical item -->
+            <div class="tree-item">
+              <div class="node" onclick="toggle(this)">Mechanical</div>
+              <div class="children">
+                <div class="tree-item"><div class="node">Workshops</div></div>
+                <div class="tree-item"><div class="node">Labs</div></div>
+                <div class="tree-item"><div class="node">Research</div></div>
+              </div>
             </div>
-          </div>
 
-          <!-- Civil item -->
-          <div class="tree-item">
-            <div class="node" onclick="toggle(this)">Civil</div>
-            <div class="children">
-              <div class="tree-item"><div class="node">Construction</div></div>
-              <div class="tree-item"><div class="node">Survey Projects</div></div>
-              <div class="tree-item"><div class="node">Internships</div></div>
+            <!-- Civil item -->
+            <div class="tree-item">
+              <div class="node" onclick="toggle(this)">Civil</div>
+              <div class="children">
+                <div class="tree-item">
+                  <div class="node">Construction</div>
+                </div>
+                <div class="tree-item">
+                  <div class="node">Survey Projects</div>
+                </div>
+                <div class="tree-item"><div class="node">Internships</div></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- svg for curved connections -->
+      <svg id="lines"></svg>
     </div>
 
-    <!-- svg for curved connections -->
-    <svg id="lines"></svg>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
