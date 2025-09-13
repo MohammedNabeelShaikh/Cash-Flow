@@ -1,7 +1,7 @@
 :root {
-  --blue:#4a90e2;
-  --soft:#eef4ff;
-  --line:#8a8f98;
+  --blue: #4a90e2;
+  --soft: #eef4ff;
+  --line: #8a8f98;
 }
 
 /* center page */
@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6f9;
+  background: #121212;
 }
 
 /* card container */
@@ -22,7 +22,7 @@ body {
   max-width: calc(100% - 40px);
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 22px;
   box-sizing: border-box;
   text-align: center;
@@ -59,7 +59,7 @@ h2 {
   border: 2px solid var(--blue);
   cursor: pointer;
   font-weight: 700;
-  color: #123;
+  color: #1e3a8a;
   transition: transform 150ms ease, background 150ms ease, color 150ms ease;
   z-index: 2; /* above svg */
   user-select: none;
@@ -93,8 +93,16 @@ svg#lines {
 }
 
 /* small responsive tweaks */
-@media (max-width:700px) {
-  .tree-container { padding:16px; }
-  .children { gap:12px; margin-top:28px; }
-  .node { padding:8px 11px; font-size:14px; }
+@media (max-width: 700px) {
+  .tree-container {
+    padding: 16px;
+  }
+  .children {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .node {
+    padding: 8px 11px;
+    font-size: 14px;
+  }
 }
