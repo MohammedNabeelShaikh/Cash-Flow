@@ -1,3 +1,83 @@
+/* ------------------- Navbar ------------------- */
+.navbar {
+  position: fixed;    /* fixed so it always stays at top */
+  top: 0;
+  left: 0;
+  width: 100%;        /* span across the screen */
+  z-index: 1000;      /* make sure it stays above everything */
+  background: #1e3a8a; /* deep blue background */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* make sure page content isn't hidden behind the fixed navbar */
+body {
+  margin: 0;
+  padding-top: 60px; /* adjust this if navbar is taller */
+}
+
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #9ebcde;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 5px;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  width: 40vh;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  border: none;
+  background: #64b0dc;
+  color: white;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #357ab8;
+}
+
+.content {
+  padding: 20px;
+}
+
 :root {
   /* Dark Theme Palette */
   --bg: #121212; /* Page background */
@@ -44,7 +124,7 @@ body {
 
 .tree-container:hover {
   transform: scale(1.01);
-  box-shadow: 0 12px 30px rgba(220, 163, 163, 0.8);
+   box-shadow: 0 12px 30px rgba(90, 204, 246, 0.8); 
   background: linear-gradient(135deg, #91a2ef 0%, #764ba2 100%);
 }
 .tree-container:hover h2 {
