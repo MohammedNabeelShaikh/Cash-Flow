@@ -1,0 +1,100 @@
+:root {
+  --blue:#4a90e2;
+  --soft:#eef4ff;
+  --line:#8a8f98;
+}
+
+/* center page */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f9;
+}
+
+/* card container */
+.tree-container {
+  position: relative;
+  width: 900px;
+  max-width: calc(100% - 40px);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 22px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h2 {
+  margin: 0 0 14px 0;
+  color: #222;
+}
+
+/* tree layout */
+.tree {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* each item contains a node and optional children wrapper */
+.tree-item {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+/* the clickable nodes */
+.node {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--soft);
+  border: 2px solid var(--blue);
+  cursor: pointer;
+  font-weight: 700;
+  color: #123;
+  transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+  z-index: 2; /* above svg */
+  user-select: none;
+}
+.node:hover {
+  transform: translateY(-3px);
+  background: var(--blue);
+  color: #fff;
+}
+
+/* children row: hidden unless parent .tree-item has .expanded */
+.children {
+  display: none;
+  margin-top: 36px;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tree-item.expanded > .children {
+  display: flex;
+}
+
+/* keep svg behind nodes and allow clicks through it */
+svg#lines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* small responsive tweaks */
+@media (max-width:700px) {
+  .tree-container { padding:16px; }
+  .children { gap:12px; margin-top:28px; }
+  .node { padding:8px 11px; font-size:14px; }
+}
